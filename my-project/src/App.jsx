@@ -10,6 +10,9 @@ import AnimeText from './commntes/Animetext/AnimeText'
 import LocomotiveScroll from 'locomotive-scroll';
 import About from './commntes/about/About'
 import EyeBoll from './commntes/EyeBoll.jsx/EyeBoll'
+import Fetures from './commntes/Fetures/Fetures'
+import Review from './commntes/Review/Review'
+import Footer from './commntes/footer/Footer'
 export default function App() {
   let tl = gsap.timeline();
   
@@ -30,18 +33,21 @@ export default function App() {
     },)
 
     tl.to(".main-container",{
-      overflow:"none",
+      overflow:"",
     },)
   })
   return (
-    <div className="main bg-[#212121] py-[100px] px-[150px] h-screen flex justify-center " >
-    <div className='main-container  bg-[#f1f1f1f1] h-full '>
+    <div className="main bg-[#212121] py-[100px] px-[150px] h-screen flex justify-center overflow-hidden " >
+    <div className='main-container  bg-[#f1f1f1f1] h-full rounded-[20px]'>
       <Loader  />
       <Navbar/>
       <Hero/>
       <AnimeText/>
       <About/>
       <EyeBoll/>
+      <Fetures/>
+      <Review/>
+      <Footer/>
     </div>
     </div>
   )

@@ -2,8 +2,6 @@ import React from 'react'
 import {useGSAP} from '@gsap/react'
 import gsap from 'gsap'
 import { TfiArrowTopRight } from "react-icons/tfi";
-
-
 export default function Hero() {
   let HeroData = ["we create","eye-opening","presentaions"]
   let Herobottom = ["For public and private companies","From the first pitch to IPO","start the project"]

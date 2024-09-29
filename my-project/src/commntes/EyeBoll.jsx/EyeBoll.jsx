@@ -1,71 +1,84 @@
 import React, { useEffect, useState } from 'react'
 
 export default function EyeBoll() {
-  let [Inactivemouce,setInactivemouse] = useState(false)  
+  let [Activebg,setActiveng] = useState(false);
+  let [postion,setPostion] = useState({
+    x:0,
+    y:0,
+  })
 
-  let [toggle,setToggle] = useState(false)
-//   let [postion,setPostion] = useState([x,y])
 
-  let MouseEnter=()=>{
-      setInactivemouse(true);
-      setToggle(!toggle);
+  let changeBG =()=>{
+    setActiveng(!Activebg);
   }
 
-  
-  let MouseLeave=()=>{
-      setInactivemouse(false);
-      setToggle(!toggle);
-  }
 
-  let [x,setX] = useState(0)
-  let [y,setY] = useState(0)
- let movingMOuse = ()=>{
-    document.addEventListener('mousemove',(e)=>{
-        setX(e.x)
-        setY(e.y)
-    })
- }
-
-
-    let activeItem = ()=>{
-
-      if(!toggle){
-        MouseEnter()
+  useEffect(() => {
+    const handleMouseMove = (e) => {
+      setPostion({ x: e.clientX, y: e.clientY });
+    };
+    const mainElement = document.querySelector(".main");
+    if (mainElement) {
+      mainElement.addEventListener("mousemove", handleMouseMove);
+    }
+    return () => {
+      if (mainElement) {
+        mainElement.removeEventListener("mousemove", handleMouseMove);
       }
-      else{
-        MouseLeave()  
-      }
-  }
+    };
+  }, []);
 
   return (
-    <div  className={`eye-container min-h-[100vh] w-full  bg-cover bg-center relative`} data-scroll data-scrol-speed="-.3" onClick={activeItem} onMouseMove={movingMOuse} >
-        
-        <div style={{
-        top:y-10,
-        left:x-10,
-    }}
-     className={`moving-curser absolute z-20 px-5 py-2 rounded-[20px] text-white  top-1/2 left-1/2 bg-[#222] justify-center items-center`}>{Inactivemouce?"PAUSE":"PLAY"}</div>
-        {
-            (Inactivemouce)?
-             <video src='/asstes/images/1.mp4' className='w-full h-full object-cover' loop muted autoPlay/>
-            :
-            <div className=' bg-cover bg-cenetr '>
-                <img src="/asstes/images/eye.jpg" alt="" className='w-full h-full object-cover absolute' />
-                <div className="eye flex gap-[5vw] bg-red-500 ">
-          <div className="gola">
-            <div className="black-gola">
-                <div className="small-gola"></div>
-            </div>
-          </div>
-          <div className="gola">
-            <div className="black-gola">
-                <div className="small-gola"></div>
-            </div>
-          </div>
-        </div>
-            </div>
-        }
+    <div className='main w-full min-h-[100vh] relative' onClick={changeBG} data-scroll data-scroll-section data-scroll-speed="-.3">
+      <div style={{
+        top: postion.y,
+        left:postion.x,
+      }}
+       className={`mouse-moving px-5 text-white rounded-[20px] bg-[#333] fixed z-50 ${(Activebg)?"block":"hidden"}`}>PAUSE</div>
 
+
+      <div className=' flex justify-center items-center h-[100vh] w-full relative'>
+        <div className="w-full h-full absolute top-0 left-0 ">
+        {
+          Activebg?
+          <video src="/asstes/images/1.mp4" autoPlay loop muted className='w-full h-[100%] object-cover duration-5'/>
+          :
+          <img src='/asstes/images/eye.jpg' className='w-full h-[100%] object-cover'/>
+        }
+        </div>
+        <MovingEye Activebg={Activebg} position={postion}/>
+      </div>
+    </div>
+  )
+}
+
+
+function MovingEye({Activebg,position}){
+
+  return(
+    <div className={`gola  flex gap-[2vw] h-[300px] w-[500px] items-center relative ${(Activebg)?"hidden":"block"}`}>
+    <div  className="inside-gola w-1/2 h-[85%] rounded-full bg-white flex justify-center items-center">
+     <div className="black-gola w-[75%] h-[75%] rounded-full bg-[#000] relative flex justify-center items-center text-white">
+      <div style={{
+          transform: `rotate(${position.y}deg)`,
+      }} className="w-full  h-10 ">
+        
+      <div className="moving-eye-bol w-[30px] h-[30px] rounded-full bg-white "></div>
+      </div>
+     </div>
+     
+    </div>
+    <div className="inside-gola w-1/2 h-[85%] rounded-full bg-white flex justify-center items-center">
+     <div className="black-gola w-[75%] h-[75%] rounded-full bg-[#000] relative flex justify-center items-center">
+     <div style={{
+          transform: `rotate(${position.y}deg)`,
+      }} className="w-full  h-10 ">
+      <div className="moving-eye-bol w-[30px] h-[30px] rounded-full bg-white "></div>
+      </div>    
+      
+       </div>
+     
+    </div>
     </div>
   )
 }

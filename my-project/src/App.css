@@ -20,7 +20,9 @@ body{
   background: #F1F1F1;
 }
 
-
+#nav{
+  
+}
 #nav .logo svg path{
   fill:#333;
   transition: ease all 0.5s;
@@ -74,6 +76,8 @@ body{
 }
 
 .mobile-nav{
+  position: fixed;
+  z-index: 50;
   transition: ease all 0.5s;
 }
 
@@ -231,18 +235,65 @@ body{
   border: 1px solid #222;
   padding: 5px 15px;
   border-radius: 20px;
+  position: relative;
+  text-transform: uppercase;
+}
+.btu-container button::after{
+  content: "";
+  top: 0;left: 0;
+  height: 100%;
+  transform: scale(0);
+  z-index: -1;
+  width: 100%;
+  position: absolute;
+  background: #000;
+  transition: ease all 0.1s;
+  border: 1px solid #222;
+  padding: 5px 15px;
+  border-radius: 20px;
   text-transform: uppercase;
 }
 
+.btu-container:hover button::after{
+  transform: scale(1);
+}
+
+.btu-container:hover button{
+  color: #fff;
+}
+
 .btu-container .gola{
+  display: inline-block;
   border: 1px solid #222;
   padding: 10px;
+  color: #000;
   display: flex;
   justify-content: center;
   align-items: center;
+  position: relative;
   border-radius: 50%;
 }
-
+.btu-container .gola::after{
+  content: "";
+  top: 0;left: 0;
+  height: 100%;
+  transform: scale(0);
+  z-index: -1;
+  width: 100%;
+  position: absolute;
+  background: #000;
+  transition: ease all 0.1s;
+  border: 1px solid #222;
+  padding: 5px 15px;
+  border-radius: 20px;
+  text-transform: uppercase;
+}
+.btu-container:hover .gola::after{
+  transform: scale(1);
+}
+.btu-container:hover .gola{
+  color: #fff;
+}
 
  .text-animtion .text-dow{
   color: #555;
@@ -260,7 +311,12 @@ body{
     transform: translateY(150%);
    }
  }
-
+.hea{
+  line-height: 6vw;
+  word-spacing: -5px;
+  font-size: 8vw;
+  font-family: bold-font;
+}
 
  #anime-text{
   white-space: nowrap;
@@ -281,6 +337,10 @@ body{
   /* background: #000; */
  }
 
+ .about{
+  position: relative;
+  z-index: 30;
+ }
 
  .about-container h1{
    width: 85%;
@@ -303,8 +363,6 @@ body{
 
 .about{
   position: relative;
-
-  z-index: 30;
 }
 
 .btu {
@@ -365,8 +423,6 @@ body{
   bottom: 100%;
   transition: bottom 0.2s ease-in-out;
 }
-
-
 
 
  @media  screen and (max-width:400px) {
