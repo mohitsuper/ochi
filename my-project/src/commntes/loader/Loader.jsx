@@ -23,6 +23,7 @@ export default function Loader() {
         };
       }, [setAnimedata]);
     
+
       useGSAP(()=>{
         gsap.to(".loader",{
             opacity:0,
@@ -39,9 +40,8 @@ export default function Loader() {
            {
             HeroData.map((v,i)=>{
               return(
-                <>
+              
                   <div className={`text2 flex`} key={i}>{v}</div>
-                </>
               )
             })
            }

@@ -10,28 +10,20 @@ export default function Hero() {
       width:"9vw",
       delay:3.8,
       duration:0.5,
-    })
-
-    gsap.to(".text-down",{
-      y:100,
-      duration:1,
-      // delay:2,
-      repeat:-1,
-    })
-   })
+    }) })
   return (
     <div className='h-full w-full' data-scroll data-scroll-speed="-.3">
         <div className="hero-text mt-[10vw] mb-[14vw] mx-4  xl:mt-[5vw] xl:mb-[7vw] h-full xl:mx-[50px]">
            {
             HeroData.map((v,i)=>{
               return(
-                <>
+              
                   
-                  <div className={`text-mo  text-mo-${i} text text-${i}  flex`}>{(i ==1)?
+                  <div className={`text-mo  text-mo-${i} text text-${i}  flex`} key={i}>{(i ==1)?
                     <div className="hero-img">
                       <img src="/asstes/images/hero1.jpg" alt="" />
                     </div>:""} {v}</div>
-                </>
+              
               )
             })
            }
@@ -43,7 +35,7 @@ export default function Hero() {
            {
             Herobottom.map((v,i)=>{
               return(
-                <>
+                <div key={i}>
                 {
                   (i==2)?
                   <div className="btu-container ml-[20vw] ">
@@ -55,14 +47,14 @@ export default function Hero() {
                   :
                   <div className={`hero-bottom-text-item text-[1vw] text-[#222] ${(i==1)?"ml-[31vw]":""}`}>{v}</div>
                 }
-                </>
+                </div>
               )
             })
            }
         </div>
 
         <div className="text-animtion w-full text-center mt-[3vw] h-[30px] overflow-hidden">
-          <div className="text-dow  text-xl w-full">scroll down</div>
+          <div className="  text-xl w-full">scroll down</div>
         </div>
     </div>
 

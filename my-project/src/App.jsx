@@ -17,7 +17,6 @@ export default function App() {
   let tl = gsap.timeline();
   
   const locomotiveScroll = new LocomotiveScroll();
-   console.log(locomotiveScroll)
     useGSAP(()=>{
     tl.to(".main",{
       padding:0,

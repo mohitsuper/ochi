@@ -30,14 +30,14 @@ export default function Footer() {
                {
                    footerText.map((v,index)=>{
                      return(
-                        <div className='flex flex-col my-[1.2vw]'>
+                        <div className='flex flex-col my-[1.2vw]' key={index}>
                             <p className='text-[1.2vw] uppercase text-[#555] my-5'>{v.name}</p>
 
                              {
                                 v.links.map((v,i)=>{
 
                                     return(
-                                        <a className={`underline text-[1.2vw] my-1 `}>{v}</a>
+                                        <a className={`underline text-[1.2vw] my-1 `} key={i}>{v}</a>
                                         
                                     )
                                 })

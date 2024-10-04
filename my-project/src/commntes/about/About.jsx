@@ -27,7 +27,7 @@ export default function About() {
             {
                 Aboulinks.map((v,i)=>{
                     return(
-                      <a href='#'>{v}</a>
+                      <a href='#' key={i}>{v}</a>
                     )
                 })
             }

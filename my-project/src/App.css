@@ -20,144 +20,21 @@ body{
   background: #F1F1F1;
 }
 
-#nav{
-  
-}
-#nav .logo svg path{
-  fill:#333;
-  transition: ease all 0.5s;
-}
-#nav .logo svg .active-logo{
-  fill: #eee;
-}
 
-.nav-container{
-  position: relative;
-  overflow: hidden;
-  height: 40px;
-  /* background: #000; */
-}
-
-.nav-container a{
-  font-size: 1.1vw;
-  text-transform: capitalize;
-  transition:  ease all 0.5s;
-  position:relative;
-  white-space: nowrap;
-  top:0%;
-}
-
-
-#nav .overlay{
-   position: absolute;
-   top: 100%;
-   left: 0;
-   transition: ease all 0.5s;
-}
-
-#nav .overlay::after{
-  content: "";
-  position: absolute;
-  width: 100%;
-  bottom: 0;
-  left: -100%;
-  transition: ease all 0.5s;
-  border-bottom: 1px solid #222;
-
-}
-
-
-#nav .nav-container:hover .overlay::after{
-  left: 0%;
-}
-
-#nav .nav-container:not(:hover) .overlay::after{
-  left: 100%;
-}
-
-.mobile-nav{
+.mouse-moving {
   position: fixed;
-  z-index: 50;
-  transition: ease all 0.5s;
-}
-
-#nav .nav-container:hover .overlay{
-  top:0;
-  /* width:100%; */
-}
-
-#nav .nav-container:hover .first{
-    top: -100%;
-}
-
-#nav .menu{
-  position: relative;
-}
-
-#nav .menu span{
-  width: 100%;
-  display: inline-block;
-  height: 2px;
-  background: #666;
-  transition: linear all 0.5s;
-}
-
-#nav .menu .acitve{
-  transform: rotate(45deg);
-  height: 1px;
-  background: #fff;
-  transition: linear all 0.5s;
-  
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #333;
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: bold;
 }
 
 
-#nav .menu .acitve2{
-  transform: rotate(-45deg);
-  height: 1px;
-  background: #fff;
-  position: absolute;
-  transition: linear all 0.5s;
-
-}
-
-@font-face {
-  font-family: "bold-font";
-  src: url("./asstes/fonts/FoundersGrotesk-Semibold.ttf");
-}
-
-.mo-links a{
-  line-height: 1;
-  word-spacing: 10;
-  font-size: 20vw;
-  font-family: bold-font;
-  position: relative;
-  text-transform: uppercase;
-}
-
-.mo-links a::after{
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 20px;
-  width: 0%;
-  height: 1px;
-  transition: ease all 0.5s;
-  background: #fff;
-}
-
-.mo-links a:hover::after{
-   width: 80%;
-}
-
-.links p{
-  font-size: 5vw;
-  text-transform: uppercase;
-}
-
-.links a{
-  font-size: 5vw;
-  text-decoration: underline;
-}
 
 .hero-text{
   overflow: hidden;

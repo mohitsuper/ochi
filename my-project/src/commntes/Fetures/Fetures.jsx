@@ -80,7 +80,6 @@ let FeturesData =[
 }
 
 function FeaturedCards({Hovertext,setHovertext,src,i,setActiveIndex}){
-   console.log(Hovertext)
     return (
       <div className='' onMouseEnter={()=>{
         setActiveIndex(i)
@@ -91,7 +90,7 @@ function FeaturedCards({Hovertext,setHovertext,src,i,setActiveIndex}){
         </h4>
         </div>
         <div className="feture-image w-full h-[75vh] ">
-            <img src={src} alt="" className='w-full h-full object-cover object-top ' srcset="" />
+            <img src={src} alt="" className='w-full h-full object-cover object-top '  />
         </div>
       </div>
 
