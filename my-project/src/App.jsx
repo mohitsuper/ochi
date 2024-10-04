@@ -43,7 +43,7 @@ export default function App() {
       <Hero/>
       <AnimeText/>
       <About/>
-      <EyeBoll/>
+      
       <Fetures/>
       <Review/>
       <Footer/>
